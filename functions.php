@@ -14,6 +14,7 @@ function ct_theme_setup() {
 // Holds all of the funtions called from this main file
 // View /lib/ct_child_functions.php for details
 include_once( get_stylesheet_directory() . '/lib/ct_child_functions.php' ); /* <-- THIS FILE IS REQUIRED!! DO NOT REMOVE --> */
+include_once( get_stylesheet_directory() . '/lib/ct_shortcodes.php');
 
 // Add a custom post types with or without custom taxonomy
 // View /lib/custom_post_types for details
@@ -47,11 +48,40 @@ remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
 // Remove WP version
 remove_action( 'wp_head', 'wp_generator' );  
 
+/** Remove default site title and add custom site title **/
+remove_action( 'genesis_site_title', 'genesis_seo_site_title' );
+remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
+function custom_site_title() { 
+     echo '<a href="'.get_bloginfo('url').'" title="My Website"><div class="ct-header-logo"></div></a>';
+}
+add_action( 'genesis_site_title', 'custom_site_title' );
+
+
 add_action('genesis_meta', 'ct_extra_scripts');
 function ct_extra_scripts() {
-	wp_register_script( 'mdfootnotes', get_stylesheet_directory_uri() . '/js/jquery.markdownFootnotes.min.js');
-//	wp_register_script( 'mdfootnotes', '/wp-content/themes/clearlytech-genesis/js/jquery.markdownFootnotes.js');
+  wp_deregister_script('jquery');
+  wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"), false, '1.10.2');
+  wp_register_script('jquery-ui', ("http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"), array('jquery'), '1.10.3');
+	wp_register_script( 'mdfootnotes', get_stylesheet_directory_uri() . '/js/jquery.markdownFootnotes.min.js', array('jquery'));
+  wp_register_script( 'purl', get_stylesheet_directory_uri() . '/js/purl.js', array( 'jquery' ));
+  wp_register_script( 'highlighter-core', get_stylesheet_directory_uri() . '/js/syntaxhighlighter/shCore.js');
+  wp_register_script( 'highlighter-jscript', get_stylesheet_directory_uri() . '/js/syntaxhighlighter/shBrushJscript.js');
+  wp_register_script( 'highlighter-xml', get_stylesheet_directory_uri() . '/js/syntaxhighlighter/shBrushXml.js');
+  
+  wp_enqueue_script('jquery');
+  wp_enqueue_script('jquery-ui');
 	wp_enqueue_script( 'mdfootnotes' );
+  wp_enqueue_script( 'purl' );
+  wp_enqueue_script( 'highlighter-core');
+  wp_enqueue_script( 'highlighter-jscript');
+  wp_enqueue_script( 'highlighter-xml');
+}
+
+add_action( 'wp_enqueue_scripts', 'custom_load_custom_style_sheet' );
+function custom_load_custom_style_sheet() {
+  wp_enqueue_style( 'fontawesome', '//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css');
+	wp_enqueue_style( 'highlighter-core-style', get_stylesheet_directory_uri() . '/css/syntaxhighlighter/shCore.css');
+	wp_enqueue_style( 'highlighter-default-style', get_stylesheet_directory_uri() . '/css/syntaxhighlighter/shThemeDefault.css');
 }
 
 /***** OTHER <HEAD> ELEMENTS *****/
@@ -61,7 +91,7 @@ add_action( 'genesis_meta', 'ct_viewport_meta_tag' );
 
 //* Add viewport meta tag for mobile browsers GENESIS 2.0 FEATURE
 // Disable the action above if you want to use what Genesis adds for viewport. Use one or the other
-//add_theme_support( 'genesis-responsive-viewport' );
+add_theme_support( 'genesis-responsive-viewport' );
 
 // Change favicon location 
 //add_filter( 'genesis_pre_load_favicon', 'ct_favicon_filter' );
@@ -89,6 +119,10 @@ add_theme_support( 'genesis-structural-wraps', array( 'header', 'nav', 'subnav',
 // KEEP DISABLED UNLESS YOU DO SOMETHING IN "ct_child_functions.php" FILE
 // add_filter( 'genesis_attr_entry', 'ct_custom_entry_attributes', 20 );
 
+add_action( 'genesis_before_header', 'top_border_bar' );
+function top_border_bar() {
+	echo '<div class="top-border-bar"></div>';
+}
 
 // Reposition nav menus
 //remove_action('genesis_after_header','genesis_do_nav');
@@ -100,11 +134,18 @@ add_theme_support( 'genesis-structural-wraps', array( 'header', 'nav', 'subnav',
 // Remove Genesis layout settings
 // remove_theme_support( 'genesis-inpost-layouts' );
 
+if ( function_exists( 'add_image_size' ) ) { 
+	add_image_size( 'featured-thumb', 368, 9999 ); // 368 pixels wide (and unlimited height)
+	add_image_size( 'featured-thumb-short', 368, 100, true ); // (cropped)
+  add_image_size( 'featured-full-short', 803, 218, true);
+  set_post_thumbnail_size( 368, 100, true );
+}
+
 /** Add Post image above post title, single posts only */
 add_action( 'genesis_before_entry_content', 'ct_post_image' );
 function ct_post_image() {
-	if (is_single() && $image = genesis_get_image( 'format=url&size=thumbnail' ) ) {
-		printf( '<a href="%s" rel="bookmark"><img class="alignright post-image entry-image" src="%s" alt="%s" /></a>', get_permalink(), $image, the_title_attribute( 'echo=0' ) );
+	if (is_single() && has_post_thumbnail() && $image = genesis_get_image( 'format=url&size=featured-full-short' ) ) {
+		printf( '<a href="%s" rel="bookmark"><img class="aligncenter post-image entry-image" src="%s" alt="%s" /></a>', get_permalink(), $image, the_title_attribute( 'echo=0' ) );
 	}
 }
 
@@ -113,6 +154,12 @@ function custom_excerpt_length( $length ) {
 	return 120;
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
+add_filter( 'genesis_post_info', 'post_info_filter' );
+function post_info_filter($post_info) {
+  $post_info = '[post_author_posts_link before="<i class=icon-user></i>"] [post_date before="<i class=icon-calendar></i>"] [post_comments]';
+  return $post_info;
+}
 
 
 /***** CUSTOMIZING TITLES & DESCRIPTION & BREADCRUMBS *****/

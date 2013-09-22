@@ -1,10 +1,10 @@
 <?php
 
-add_action( 'genesis_before_content_sidebar_wrap', 'ct_featured_tiles');
+// add_action( 'genesis_before_content_sidebar_wrap', 'ct_featured_tiles');
 
-function ct_featured_tiles() {
-	echo do_shortcode("[post-tiles]");
-}
+// function ct_featured_tiles() {
+//   echo do_shortcode("[post-tiles]");
+// }
 
 add_action( 'genesis_meta', 'ct_home_widget_test' );
 
@@ -13,8 +13,8 @@ function ct_home_widget_test() {
 
 	if ( is_active_sidebar( 'home-featured-full' ) || is_active_sidebar( 'home-featured-left' ) || is_active_sidebar( 'home-featured-right' ) || is_active_sidebar( 'home-middle-1' ) || is_active_sidebar( 'home-middle-2' ) || is_active_sidebar( 'home-middle-3' ) || is_active_sidebar( 'home-bottom' ) ) {
 
-		remove_action( 'genesis_loop', 'genesis_do_loop' );
-		add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_content' );
+    // remove_action( 'genesis_loop', 'genesis_do_loop' );
+    // add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_content' );
 		add_action( 'genesis_after_header', 'ct_home_do_featured' );		
 		add_action( 'genesis_after_header', 'ct_home_do_middle' );
 		add_action( 'genesis_after_header', 'ct_home_do_bottom' );

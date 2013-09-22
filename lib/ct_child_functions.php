@@ -16,7 +16,7 @@ function ct_favicon_filter( $favicon_url ) {
 // Add scripts & styles
 function ct_load_custom_scripts() {
 	  wp_register_script( 'theme', CHILD_URL . '/js/scripts.js', array( 'jquery' ), '1.0', true );
-
+    
 	  wp_register_style( 'google-fonts', 'http://fonts.googleapis.com/css?family=Lora|Open+Sans+Condensed:300\" rel="stylesheet" type="text/css">' );
 	  wp_register_style( 'theme-ie-only', CHILD_URL . '/css/child-style-ie.css' );
 	 
@@ -44,7 +44,7 @@ function _remove_script_version( $src ){
 // Footer creds
 function ct_footer_creds_text($creds) {
 	if ( is_front_page()) {
-$creds = '&copy;' .date('Y') .' '. get_bloginfo('name') .' <span id="footer-dev-creds">- Starter Theme By <a href="http://www.gregreindel.com">Greg Reindel</a> Powered By Genesis Famework</span>';
+$creds = '&copy;' .date('Y') .' '. get_bloginfo('name') .' <span id="footer-dev-creds">- Site Managed by <a href="http://will.koffel.org">Will Koffel</a> | Powered By <a href="http://www.wordpress.com/">Wordpress</a> | Hosted on <a href="http://aws.amazon.com/">Amazon AWS</a></span>';
 	}else {
 $creds = '&copy; 2013 ' . get_bloginfo('name');
 	}

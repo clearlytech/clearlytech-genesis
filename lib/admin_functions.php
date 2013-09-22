@@ -1,7 +1,7 @@
 <?php
 
 // Custom admin footer creds text
-add_filter( 'admin_footer_text', create_function( '$a', 'return \'<span id="footer-thankyou">Site managed by <a href="http://www.gregreindel.com">Greg Reindel</a><span> | Powered by <a href="http://www.wordpress.org">WordPress</a>\';' ) );
+add_filter( 'admin_footer_text', create_function( '$a', 'return \'<span id="footer-thankyou">Site managed by <a href="http://will.koffel.org">Will Koffel</a><span> | Powered by <a href="http://www.wordpress.org">WordPress</a> | Hosted on <a href="http://aws.amazon.com/">Amazon AWS</a>\';' ) );
 
 //add_action( 'admin_print_styles', 'genesis_child_load_admin_styles' );
 
