@@ -58,6 +58,11 @@ function ct_footer_backtotop_text($backtotop) {
     return $backtotop;
 }
 
+add_action('wp_footer', 'ct_syntaxhighlighter_script');
+function ct_syntaxhighlighter_script() {
+  echo "<script>SyntaxHighlighter.defaults.toolbar = false;SyntaxHighlighter.all()</script>";
+}
+
 // Remove & add custom site title
 // Below is the default markup
 function ct_custom_seo_site_title() {
