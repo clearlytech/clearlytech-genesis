@@ -153,24 +153,23 @@ Defaults
 --------------------------------------------- */
 
 @font-face {
-    font-family: 'gibsonbold';
-    src: url('fonts/gibson-bold_1-webfont.eot');
-    src: url('fonts/gibson-bold_1-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/gibson-bold_1-webfont.woff') format('woff'),
-         url('fonts/gibson-bold_1-webfont.ttf') format('truetype'),
-         url('fonts/gibson-bold_1-webfont.svg#gibsonbold') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
     font-family: 'gibsonregular';
     src: url('fonts/gibson-regular_1-webfont.eot');
     src: url('fonts/gibson-regular_1-webfont.eot?#iefix') format('embedded-opentype'),
          url('fonts/gibson-regular_1-webfont.woff') format('woff'),
          url('fonts/gibson-regular_1-webfont.ttf') format('truetype'),
          url('fonts/gibson-regular_1-webfont.svg#gibsonregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'gibsonitalic';
+    src: url('fonts/gibson-italic_2-webfont.eot');
+    src: url('fonts/gibson-italic_2-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/gibson-italic_2-webfont.woff') format('woff'),
+         url('fonts/gibson-italic_2-webfont.ttf') format('truetype'),
+         url('fonts/gibson-italic_2-webfont.svg#gibsonitalic') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -185,7 +184,6 @@ Defaults
          url('fonts/gibson-semibold_1-webfont.svg#gibsonsemibold') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
 
 @font-face {
@@ -197,7 +195,6 @@ Defaults
          url('fonts/gibson-light_1-webfont.svg#gibsonlight') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
 
 @font-face {
@@ -206,10 +203,9 @@ Defaults
     src: url('fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
          url('fonts/fontawesome-webfont.woff') format('woff'),
          url('fonts/fontawesome-webfont.ttf') format('truetype'),
-         url('fonts/fontawesome-webfont.svg#gibsonlight') format('svg');
+         url('fonts/fontawesome-webfont.svg#fontawesome') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
 
 i {
@@ -225,12 +221,14 @@ html {
 }
 
 body {
-	background: #ddd;
+	background: #f1f1f1;
   background-image: url(images/background_texture.png);
 	color: rgba(0, 0, 0, 0.6);
   font-family: 'gibsonregular', Helvetica, Arial, sans-serif;
-	font-size: 14px;
-	font-size: 1.4rem;
+  font-weight: normal;
+  font-style: normal;
+	font-size: 15px;
+	font-size: 1.5rem;
   line-height: 1.625;
 }
 
@@ -289,18 +287,38 @@ blockquote {
 }
 
 blockquote::before {
-	content: "\201C";
-	display: block;
-	font-size: 30px;
-	font-size: 3rem;
-	height: 0;
-	left: -20px;
-	position: relative;
-	top: -10px;
+  content: "\f10d"; 
+  font-family: FontAwesome;
+  float: left;
+  margin-right: 10px;
+  display: block;
+  position: relative;
+  font-size: 30px;
+  font-size: 3rem;
 }
 
 cite {
-	font-style: normal;
+  font-family: 'gibsonitalic', Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+}
+
+strong {
+  font-family: 'gibsonsemibold', Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+}
+
+em {
+  font-family: 'gibsonitalic', Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+}
+
+dfn {
+  font-family: 'gibsonitalic', Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
 }
 
 /* Headings
@@ -312,14 +330,14 @@ h3,
 h4,
 h5,
 h6 {
-	color: #262626;
+	color: rgba(38, 38, 38, 0.9);
   font-family: 'gibsonregular', Helvetica, Arial, sans-serif;
-	font-weight: 300;
 	line-height: 1.2;
 	margin: 0;
 	margin-bottom: 16px;
 	margin-bottom: 1.6rem;
 	padding: 0;
+  font-weight: normal;
 }
 
 h1 {
@@ -399,7 +417,9 @@ input[type="submit"] {
 	box-shadow: none;
 	color: #fff;
 	cursor: pointer;
-	font-weight: 700;
+  font-family: 'gibsonsemibold', Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
 	letter-spacing: 1px;
 	letter-spacing: 0.1rem;
 	padding: 16px 24px;
@@ -665,7 +685,9 @@ img.alignright,
 .wp-caption-text {
 	font-size: 14px;
 	font-size: 1.4rem;
-	font-weight: 700;
+  font-family: 'gibsonsemibold', Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
 	margin: 0;
 	text-align: center;
 }
@@ -684,18 +706,6 @@ img.alignright,
 /* Genesis
 --------------------------------------------- */
 
-.breadcrumb {
-	margin-bottom: 10px;
-	margin-bottom: 1rem;
-  background-color: #ddd;
-  padding: 10px;
-  padding: 1.0rem;
-}
-
-.breadcrumb a {
-  text-decoration: underline;
-}
-
 .archive-description,
 .author-box {
 	background: #fff;
@@ -704,9 +714,10 @@ img.alignright,
 }
 
 .archive-description {
-	margin-bottom: 4rem;
-	padding: 40px 40px 24px;
-	padding: 4rem 4rem 2.4rem;
+  margin-bottom: 4rem;
+  padding: 40px 40px 24px;
+  padding: 4rem 4rem 2.4rem;
+  display:none;
 }
 
 .author-box {
@@ -742,7 +753,7 @@ img.alignright,
 .entry-title {
 	font-size: 36px;
 	font-size: 3.6rem;
-	line-height: 1;
+	line-height: 1.1;
 }
 
 .entry-title a {
@@ -751,10 +762,6 @@ img.alignright,
 
 .sidebar .widgettitle a {
 	color: #4e4e4e;
-}
-
-.entry-title a:hover {
-	color: #666;
 }
 
 .widgettitle {
@@ -946,7 +953,7 @@ Site Header
 #title-area,
 .title-area {
   font-family: 'gibsonregular', Helvetica, Arial, sans-serif;
-	font-weight: 300;
+	font-weight: normal;
 	float: left;
 	padding: 0
 	width: 360px;
@@ -977,7 +984,7 @@ Site Header
 	color: #999;
 	font-size: 16px;
 	font-size: 1.6rem;
-	font-weight: 300;
+	font-weight: normal;
 	line-height: 1;
 	margin: 0;
 }
@@ -1037,8 +1044,8 @@ Site Header
 
 .site-header .search-form {
 	float: right;
-	margin-top: 36px;
-	margin-top: 3.6rem;
+	margin-top: 42px;
+	margin-top: 4.2rem;
   width: 180px;
   width: 18.0rem;
   height: 14px;
@@ -1048,7 +1055,6 @@ Site Header
   height: 14px;
   background-color: rgba(90, 90, 90, 0.5);
   border: 1px solid #666;
-  color: red;
 }
 
 .site-header .widget-area .widget_nav_menu,
@@ -1063,8 +1069,8 @@ Site Navigation
 
 .genesis-nav-menu {
 	clear: both;
-	color: #5a5a5a;
-	font-family: 'gibsonsemibold', Helvetica, Arial, sans-serif;
+  color: #999;
+	font-family: 'gibsonlight', Helvetica, Arial, sans-serif;
 	font-size: 15px;
 	font-size: 1.5rem;
   line-height: 1.5;
@@ -1075,8 +1081,8 @@ Site Navigation
 
 .genesis-nav-menu .menu-item {
 	display: inline-block;
-	margin-top: 34px;
-	margin-top: 3.4rem;
+	margin-top: 40px;
+	margin-top: 4.0rem;
 	padding-left: 20px;
 	padding-left: 2.0rem;
 	text-align: left;
@@ -1085,7 +1091,7 @@ Site Navigation
 
 .genesis-nav-menu a {
 	border: none;
-	color: #5a5a5a;
+  color: #999;
 	display: block;
   padding: 14px 12px;
   padding: 0.875rem 0.75rem;
@@ -1100,6 +1106,10 @@ Site Navigation
 
 .genesis-nav-menu > .menu-item > a {
 	text-transform: uppercase;
+}
+
+.genesis-nav-menu i.icon-search {
+  cursor: pointer;
 }
 
 .genesis-nav-menu .sub-menu {
@@ -1177,6 +1187,7 @@ Site Navigation
 	width: 100%;
 }
 
+
 /* Site Header Navigation
 --------------------------------------------- */
 
@@ -1204,6 +1215,33 @@ Site Navigation
 	color: #333;
 }
 
+/* Secondary Footer Navigation
+------------------------------------------------ */
+
+.nav-secondary {
+  background-color: #323232;
+  color: #fff;
+  font-size: 16px;
+  padding: 20px;
+  padding: 2rem;
+}
+
+.nav-secondary .wrap {
+  display: table;
+}
+
+.menu-secondary {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.nav-secondary li.menu-item {
+	font-family: 'gibsonregular', Helvetica, Arial, sans-serif;
+  margin-top: 0px;
+  margin-top: 0rem;
+}
+
 
 /*
 Content Area
@@ -1215,10 +1253,15 @@ Content Area
 .entry {
 	background: #fff;
 	border-radius: 2px;
+  border: 1px solid #ddd;
 	margin-bottom: 20px;
 	margin-bottom: 2rem;
-	padding: 20px 20px 12px;
-	padding: 2rem 2rem 1.2rem;
+	padding: 30px 50px 12px 50px;
+	padding: 3rem 5rem 1.2rem 5rem;
+}
+
+.entry .post-image {
+  border: 1px solid #a4a4a4;
 }
 
 .entry-content a {
@@ -1231,8 +1274,36 @@ Content Area
   margin-bottom: 2rem;
 }
 
-.entry-content table, th, td {
-  border: 1px solid black;
+.entry-content table caption {
+  font-size: 120%;
+}
+
+.entry-content table thead {
+  border-top: 1px solid #cecece;
+  border-left: 1px solid #cecece;
+  border-right: 1px solid #cecece;
+}
+
+.entry-content table th, td {
+  font-size: 12px;
+  padding: 25px;
+  padding: 2.5rem;
+}
+
+.entry-content table th {
+  font-family: 'gibsonsemibold', Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #e5e5e5;
+}
+
+.entry-content table td {
+  color: #555;
+  background-color: #f7f7f7;
+  border: 1px solid #cecece;
+}
+.entry-content .table-zebra-even td {
+  background-color: #fff;
 }
 
 .entry-content a:hover {
@@ -1273,17 +1344,29 @@ Content Area
 }
 
 .entry-content aside {
+	font-size: 14px;
+	font-size: 1.4rem;
+	color: rgba(0, 0, 0, 0.7);
   float: right;
-  width: 35%;
-  background-color: #ddd;
-  margin: 4px;
+  width: 38%;
+  background-color: #f6f6f6;
+  padding: 30px;
+  padding: 3.0rem;
+  margin: 20px 0px 20px 40px;
+  margin: 2.0rem 0rem 2.0rem 4.0rem;
+  border: 1px solid #eaeaea;
+  clear: both;
 }
 
 .entry-content aside > img {
-  width: 50%;
   display: block;
   margin-right: auto;
   margin-left: auto;
+}
+
+.entry-content .footnote {
+  font-size: 60%;
+  vertical-align: super;
 }
 
 .entry-meta {
@@ -1299,7 +1382,7 @@ Content Area
   border-bottom: none;
 }
 
-.entry-meta .entry-author,.entry-time {
+.entry-meta .entry-author,.entry-time,.entry-categories,.entry-tags {
   margin-right: 20px;  
 }
 
@@ -1324,8 +1407,14 @@ Content Area
 
 .entry-meta .entry-categories,
 .entry-meta .entry-tags {
-	display: block;
+	display: inline;
 }
+
+.entry-content div.footnotes p {
+  margin-bottom: 0px;
+  margin-bottom: 0rem;
+}
+
 
 /* Entry Navigation
 --------------------------------------------- */
@@ -1351,7 +1440,9 @@ Content Area
 	color: #fff;
 	cursor: pointer;
 	display: inline-block;
-	font-weight: 700;
+  font-family: 'gibsonsemibold', Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
 	padding: 8px 12px;
 	padding: 0.8rem 1.2rem;
 }
@@ -1471,16 +1562,55 @@ Sidebars
 .sidebar .widget {
 	background: #fff;
 	border-radius: 0px;
-  border-top: solid 6px #595959;
-  border-top: solid 0.6rem #595959;
-	margin-bottom: 20px;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
 	margin-bottom: 2.0rem;
   padding-bottom: 20px;
   padding-bottom: 2.0rem;
 }
 
+.sidebar .widget-wrap {
+  border-top: solid 6px #595959;
+  border-top: solid 0.6rem #595959;
+  border-top: solid 6px #7dbf53;
+  border-top: solid 0.6rem #7dbf53;
+}
+
+.breadcrumb {
+	margin-bottom: 10px;
+	margin-bottom: 1rem;
+  background: #fff;
+  border: 1px solid #DDD;
+  text-align: center;
+}
+
+.breadcrumb .breadcrumb-wrapper {
+  border-top: solid 6px #595959;
+  border-top: solid 0.6rem #595959;
+  padding: 10px;
+  padding: 1.0rem;
+}
+
+.breadcrumb .breadcrumb-title {
+  color: #4e4e4e;
+  font-size: 14px;
+}
+
+.breadcrumb i {
+  display:block;
+  padding-bottom: 8px;
+  padding-bottom: 0.8rem;
+}
+
+.breadcrumb a {
+  display: block;
+  text-decoration: none;
+  border-bottom: none;
+}
+
+
 /* special widgets with green headers */
-#text-4 {
+#text-4 .widget-wrap {
   border-top: solid 6px #7dbf53;
   border-top: solid 0.6rem #7dbf53;  
 }
@@ -1656,22 +1786,34 @@ Site Footer
 ---------------------------------------------------------------------------------------------------- */
 
 .site-footer {
+  background: #424242;
 	color: #999;
 	font-size: 14px;
 	font-size: 1.4rem;
-	padding: 40px 0;
-	padding: 4rem 0;
+	padding: 25px 0;
+	padding: 2.5rem 0;
 	text-align: center;
 }
 
+.site-footer .dev-cred {
+  padding-left: 10px;
+  padding-left: 1rem;
+  padding-right: 10px;
+  padding-right: 1rem;
+}
+
 .site-footer a {
-	border-bottom: 1px solid #ddd;
+	border-bottom: none;
 }
 
 .site-footer p {
 	margin: 0;
 }
 
+.site-footer i {
+  margin-left: 16px;
+  margin-left: 1.6rem;
+}
 
 /*
 Home Widgets

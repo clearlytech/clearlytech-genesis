@@ -43,11 +43,13 @@ function _remove_script_version( $src ){
 
 // Footer creds
 function ct_footer_creds_text($creds) {
+  $creds = '<div class="footer-creds">';
 	if ( is_front_page()) {
-$creds = '&copy;' .date('Y') .' '. get_bloginfo('name') .' <span id="footer-dev-creds">- Site Managed by <a href="http://will.koffel.org">Will Koffel</a> | Powered By <a href="http://www.wordpress.com/">Wordpress</a> | Hosted on <a href="http://aws.amazon.com/">Amazon AWS</a></span>';
+$creds .= '&copy;' .date('Y') .' '. get_bloginfo('name') .'<i class="icon-apple"></i> <span class="footer-dev-creds"><span class="dev-cred">Site Managed by <a href="http://will.koffel.org">Will Koffel</a></span> | <span class="dev-cred">Powered By <a href="http://www.wordpress.com/">Wordpress</a></span> | <span class="dev-cred">Hosted on <a href="http://aws.amazon.com/">Amazon AWS</a></span></span>';
 	}else {
-$creds = '&copy; 2013 ' . get_bloginfo('name');
+$creds .= '&copy; 2013 ' . get_bloginfo('name');
 	}
+  $creds .= '</div>';
  return  $creds;	
 }
 

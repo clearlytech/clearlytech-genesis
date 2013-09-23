@@ -5,7 +5,8 @@ jQuery(document).ready(function($) {
 		'opacity': '.9',
 		'color': '#fff',
 		'-webkit-box-shadow': '0px 0px 5px #000',
-		'-moz-box-shadow': '0px 0px 5px #000'
+		'-moz-box-shadow': '0px 0px 5px #000',
+    'padding': '12px 12px 0px 12px'
 	}
 	
 	// To edit the display of the link that closes the footnote

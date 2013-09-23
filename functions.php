@@ -65,9 +65,10 @@ function ct_extra_scripts() {
 	wp_register_script( 'mdfootnotes', get_stylesheet_directory_uri() . '/js/jquery.markdownFootnotes.min.js', array('jquery'));
   wp_register_script( 'purl', get_stylesheet_directory_uri() . '/js/purl.js', array( 'jquery' ));
   wp_register_script( 'highlighter-core', get_stylesheet_directory_uri() . '/js/syntaxhighlighter/shCore.js');
-  wp_register_script( 'highlighter-jscript', get_stylesheet_directory_uri() . '/js/syntaxhighlighter/shBrushJscript.js');
+  wp_register_script( 'highlighter-jscript', get_stylesheet_directory_uri() . '/js/syntaxhighlighter/shBrushJScript.js');
   wp_register_script( 'highlighter-xml', get_stylesheet_directory_uri() . '/js/syntaxhighlighter/shBrushXml.js');
-  
+  wp_register_script( 'fancybox', get_stylesheet_directory_uri() . '/js/fancybox/source/jquery.fancybox.pack.js?v=2.1.5');
+
   wp_enqueue_script('jquery');
   wp_enqueue_script('jquery-ui');
 	wp_enqueue_script( 'mdfootnotes' );
@@ -75,6 +76,7 @@ function ct_extra_scripts() {
   wp_enqueue_script( 'highlighter-core');
   wp_enqueue_script( 'highlighter-jscript');
   wp_enqueue_script( 'highlighter-xml');
+  wp_enqueue_script( 'fancybox');
 }
 
 add_action( 'wp_enqueue_scripts', 'custom_load_custom_style_sheet' );
@@ -82,6 +84,7 @@ function custom_load_custom_style_sheet() {
   wp_enqueue_style( 'fontawesome', '//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css');
 	wp_enqueue_style( 'highlighter-core-style', get_stylesheet_directory_uri() . '/css/syntaxhighlighter/shCore.css');
 	wp_enqueue_style( 'highlighter-default-style', get_stylesheet_directory_uri() . '/css/syntaxhighlighter/shThemeDefault.css');
+	wp_enqueue_style( 'fancybox', get_stylesheet_directory_uri() . '/js/fancybox/source/jquery.fancybox.css?v=2.1.5');
 }
 
 /***** OTHER <HEAD> ELEMENTS *****/
@@ -127,6 +130,24 @@ function top_border_bar() {
 // Reposition nav menus
 //remove_action('genesis_after_header','genesis_do_nav');
 //remove_action('genesis_after_header','genesis_do_subnav');
+remove_action( 'genesis_after_header', 'genesis_do_subnav' );
+add_action( 'genesis_before_footer', 'genesis_do_subnav' );
+
+// Reposition breadcrumbs
+remove_action( 'genesis_before_loop', 'genesis_do_breadcrumbs' );
+add_action( 'genesis_before_sidebar_widget_area', 'genesis_do_breadcrumbs' );
+
+/** Customize breadcrumbs display */
+add_filter( 'genesis_breadcrumb_args', 'ct_breadcrumb_args' );
+function ct_breadcrumb_args( $args ) {
+  $args['home'] = 'Home';
+	$args['sep'] = '<i class=icon-angle-down></i>';
+	$args['list_sep'] = ', '; // Genesis 1.5 and later
+	$args['prefix'] = '<div class="breadcrumb"><div class="breadcrumb-wrapper"><div class="inner">';
+	$args['suffix'] = '</div></div></div>';
+	$args['labels']['prefix'] = '<div class="breadcrumb-title"><i class="icon-sitemap icon-large"></i>You Are Here:</div>';
+	return $args;
+}
 
 //add_action('genesis_header_right','genesis_do_subnav');
 //add_action('genesis_header_right','genesis_do_nav');
@@ -155,9 +176,10 @@ function custom_excerpt_length( $length ) {
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
+remove_action('genesis_entry_footer', 'genesis_post_meta');
 add_filter( 'genesis_post_info', 'post_info_filter' );
 function post_info_filter($post_info) {
-  $post_info = '[post_author_posts_link before="<i class=icon-user></i>"] [post_date before="<i class=icon-calendar></i>"] [post_comments]';
+  $post_info = '[post_author_posts_link before="<i class=icon-user></i>"] [post_date before="<i class=icon-calendar></i>"] [post_categories before="<i class=icon-tags></i>"][post_comments before="<i class=icon-comments></i>"]';
   return $post_info;
 }
 
