@@ -1282,6 +1282,8 @@ Content Area
 	margin-bottom: 2rem;
 	padding: 30px 50px 12px 50px;
 	padding: 3rem 5rem 1.2rem 5rem;
+	font-size: 16px;
+	font-size: 1.6rem;
 }
 
 .entry-content {
@@ -1778,6 +1780,24 @@ Pages
 #tools-legend .in-depth {
   margin-top: 12px;
   margin-top: 1.2rem;
+}
+
+.tools-group h2 {
+  margin-bottom: 18px;
+  margin-bottom: 1.8rem;
+  color: rgba(38, 38, 38, 0.8);
+  text-align: center;
+  padding: 6px;
+  padding: 0.6rem;
+  font-size: 22px;
+  font-size: 2.2rem;
+  border: 1px solid #ddd;
+  background-color: rgba(125, 191, 83, 0.2);
+}
+
+.tools-group .one-half {
+  padding-left: 20px;
+  padding-left: 2.0rem;
 }
 
 .tools-category {

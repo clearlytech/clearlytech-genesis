@@ -30,6 +30,10 @@ include_once( get_stylesheet_directory() . '/lib/admin_functions.php' );
 // Add additional theme options
 //include_once( get_stylesheet_directory() . '/lib/custom_theme_options.php' );
 
+/********* STOP AUTO FORMATTING OF RAW HTML *************/
+remove_filter( 'the_content', 'wpautop' );
+remove_filter( 'the_excerpt', 'wpautop' );
+
 
 /***** CLEAN UP THE <HEAD> *****/
 
