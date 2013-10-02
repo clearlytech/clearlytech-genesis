@@ -97,7 +97,7 @@ add_action( 'genesis_meta', 'ct_viewport_meta_tag' );
 add_theme_support( 'genesis-responsive-viewport' );
 
 // Change favicon location 
-//add_filter( 'genesis_pre_load_favicon', 'ct_favicon_filter' );
+add_filter( 'genesis_pre_load_favicon', 'ct_favicon_filter' );
 
 // Add scripts & styles 
 add_action( 'wp_enqueue_scripts', 'ct_load_custom_scripts', 999 );
@@ -155,10 +155,15 @@ function ct_breadcrumb_args( $args ) {
 // Remove Genesis layout settings
 // remove_theme_support( 'genesis-inpost-layouts' );
 
+function ct_filter_image_sizes( $sizes) {
+    unset( $sizes['large']);
+    return $sizes;
+}
+add_filter('intermediate_image_sizes_advanced', 'ct_filter_image_sizes');
+
 if ( function_exists( 'add_image_size' ) ) { 
-	add_image_size( 'featured-thumb', 368, 9999 ); // 368 pixels wide (and unlimited height)
-	add_image_size( 'featured-thumb-short', 368, 100, true ); // (cropped)
-  add_image_size( 'featured-full-short', 803, 218, true);
+	add_image_size( 'featured-thumb', 368, 100, true ); // (cropped)
+  add_image_size( 'featured-full', 800, 217, true);
   set_post_thumbnail_size( 368, 100, true );
 }
 
@@ -183,6 +188,11 @@ function post_info_filter($post_info) {
   return $post_info;
 }
 
+// Fix comments link with Disqus
+add_action('genesis_after_entry', 'fix_comments_links'); 
+function fix_comments_links() {
+  echo '<div id="comments"></div>';
+}
 
 /***** CUSTOMIZING TITLES & DESCRIPTION & BREADCRUMBS *****/
 

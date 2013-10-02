@@ -10,7 +10,7 @@ function ct_viewport_meta_tag() {
 
 // Change favicon location 
 function ct_favicon_filter( $favicon_url ) {
-	return get_bloginfo('stylesheet_directory').'/images/favicon.png';
+	return get_bloginfo('stylesheet_directory').'/images/favicon.png?v=201309';
 }
 
 // Add scripts & styles
@@ -105,6 +105,7 @@ function ct_remove_genesis_widgets() {
     unregister_widget( 'Genesis_Featured_Post' );
     unregister_widget( 'Genesis_Latest_Tweets_Widget' );
 }
+
 
 /**
 * Don't Update Theme

@@ -223,6 +223,7 @@ html {
 body {
 	background: #f1f1f1;
   background-image: url(images/background_texture.png);
+  background-size: 30px 30px;
 	color: rgba(0, 0, 0, 0.6);
   font-family: 'gibsonregular', Helvetica, Arial, sans-serif;
   font-weight: normal;
@@ -230,6 +231,16 @@ body {
 	font-size: 15px;
 	font-size: 1.5rem;
   line-height: 1.625;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+	only screen and (-moz-min-device-pixel-ratio: 1.5),
+	only screen and (-o-min-device-pixel-ratio: 3/2),
+	only screen and (min-device-pixel-ratio: 1.5),
+  only screen and (min-resolution: 192dpi) {
+    body {
+        background:url('images/background_texture@2x.png');
+    }
 }
 
 a,
@@ -753,7 +764,7 @@ img.alignright,
 .entry-title {
 	font-size: 36px;
 	font-size: 3.6rem;
-	line-height: 1.1;
+	line-height: 1.2;
 }
 
 .entry-title a {
@@ -938,8 +949,10 @@ Site Header
 }
 
 .site-header {
+  height: 128px;
+  height: 12.8rem;
 	padding: 20px 0;
-	padding: 1.25rem 0;
+	padding: 2.0rem 0;
   background: #262626;
 }
 
@@ -1021,15 +1034,26 @@ Site Header
 
 .ct-header-logo {
   background:url(images/ct_header_logo.png) no-repeat top center;
-  height: 100px;
-  height: 10.0rem;
-  width: 297px;
-  width: 29.7rem;
+  height: 90px;
+  height: 9.0rem;
+  width: 323px;
+  width: 32.3rem;
   display: block;
-  margin-top: 10px;
-  margin-top: 1.0rem;
-  margin-bottom: 10px;
-  margin-bottom: 1.0rem;
+  margin-top: 20px;
+  margin-top: 2.0rem;
+  margin-bottom: 20px;
+  margin-bottom: 2.0rem;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+	only screen and (-moz-min-device-pixel-ratio: 1.5),
+	only screen and (-o-min-device-pixel-ratio: 3/2),
+	only screen and (min-device-pixel-ratio: 1.5),
+  only screen and (min-resolution: 192dpi) {
+    .ct-header-logo {
+        background:url('images/ct_header_logo@2x.png') no-repeat top left;
+        background-size: 323px 90px;
+    }
 }
 
 /* Widget Area
@@ -1260,12 +1284,17 @@ Content Area
 	padding: 3rem 5rem 1.2rem 5rem;
 }
 
+.entry-content {
+  margin-top: 20px;
+  margin-top: 2.0rem;
+}
+
 .entry .post-image {
   border: 1px solid #a4a4a4;
 }
 
 .entry-content a {
-  border-bottom: 1px solid #ddd;
+  border-bottom: none;
   color: #6aa545;
 }
 
@@ -1319,8 +1348,8 @@ Content Area
 .entry-content p,
 .entry-content ul,
 .quote-caption {
-	margin-bottom: 26px;
-	margin-bottom: 2.6rem;
+	margin-bottom: 18px;
+	margin-bottom: 1.8rem;
 }
 
 .entry-content ol li,
@@ -1356,6 +1385,13 @@ Content Area
   margin: 2.0rem 0rem 2.0rem 4.0rem;
   border: 1px solid #eaeaea;
   clear: both;
+}
+
+.entry-content aside.full {
+  width: 100%;
+  float: none;
+  margin: 0px 0px 20px 0px;
+  margin: 0rem 0rem 2.0rem 0rem;
 }
 
 .entry-content aside > img {
@@ -1539,7 +1575,7 @@ Sidebars
 }
 
 .sidebar a {
-	border-bottom: 1px solid #ddd;
+	border-bottom: none;
 }
 
 .sidebar p:last-child,
@@ -1608,8 +1644,12 @@ Sidebars
   border-bottom: none;
 }
 
+#text-5 .textwidget i {
+  padding-left: 5px;
+  padding-left: 0.5rem;
+}
 
-/* special widgets with green headers */
+/* special widget with green headers */
 #text-4 .widget-wrap {
   border-top: solid 6px #7dbf53;
   border-top: solid 0.6rem #7dbf53;  
@@ -1617,6 +1657,13 @@ Sidebars
 
 .sidebar .search-form {
 	width: 100%;
+}
+
+.sidebar .textwidget {
+  padding-left: 10px;
+  padding-left: 1.0rem;
+  padding-right: 10px;
+  padding-right: 1.0rem;
 }
 
 .sidebar .enews-widget {
@@ -1652,13 +1699,11 @@ Sidebars
 .sidebar #accordion p {
   font-size: 14px;
   color: #989898;
-  text-align: left;
-  padding-left: 10px;
-  padding-left: 1.0rem;
-  padding-right: 10px;
-  padding-right: 1.0rem;
-  padding-bottom: 16px;
-  padding-bottom: 1.6rem;
+  text-align: justify;
+  padding-bottom: 6px;
+  padding-bottom: 0.6rem;
+  margin-bottom: 4px;
+  margin-bottom: 0.4rem;
 }
 
 .sidebar #twitter-handle a {
@@ -1715,6 +1760,78 @@ Sidebars
   margin-left: 6px;
   border-bottom: none;
 }
+
+/*
+Pages
+---------------------------------------------------------------------------------------------------- */
+
+#tools-legend {
+  text-align: center;
+  padding: 10px;
+  padding: 1.0rem;
+  padding-left: 20px;
+  padding-left: 2.0rem;
+  margin-bottom: 40px;
+  margin-bottom: 4.0rem;
+}
+
+#tools-legend .in-depth {
+  margin-top: 12px;
+  margin-top: 1.2rem;
+}
+
+.tools-category {
+  margin-bottom: 12px;
+  margin-bottom: 1.2rem;
+}
+
+.tools-category h4 {
+  margin-bottom: 8px;
+  margin-bottom: 0.8rem;
+}
+
+.tools-category h4 i {
+  padding-left: 12px;
+  padding-left: 1.2rem;
+}
+
+.tools-category ul li {
+  list-style-type: none;
+  padding-left: 0px;
+  padding-left: 0rem;
+  margin-left: 0px;
+  margin-left: 0rem;
+}
+
+.tools-category ul li:before {
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  text-decoration: inherit;
+  margin-right: 8px;
+  margin-right: 0.8rem;
+}
+
+.tools-category ul li.a:before {
+  content: "\f005";
+}
+
+.tools-category ul li.b:before {
+  content: "\f123";
+}
+
+.tools-category ul li.c:before {
+  content: "\f006";
+}
+
+/* hiding this, so the anchor still works, but let Disqus take care of comments */
+#comments {
+  height: 0px;
+  margin: 0px;
+  padding: 0px;
+}
+
 
 /*
 Footer Widgets
@@ -1846,8 +1963,8 @@ Home Widgets
 .featuredpost .widget-wrap .entry {
 	width: 368px;
   width: 36.8rem;
-  height: 210px;
-  height: 21.0rem;  
+  height: 220px;
+  height: 22.0rem;  
 }
 
 .featuredpost .widget-wrap {
@@ -1874,6 +1991,20 @@ Home Widgets
   color: #a6a6a6;
   padding: 0px 30px 0px 30px;
   padding: 0rem 3.0rem 0rem 3.0rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 22.75px;
+  max-height: 91px;
+}
+
+@media (-webkit-min-device-pixel-ratio: 0) {
+    .featuredpost .widget-wrap p {
+      line-height: 1.625;
+      max-height: 1000px;
+      display: -webkit-box;
+      -webkit-line-clamp: 4; /* number of lines to show */
+      -webkit-box-orient: vertical;
+    }
 }
 
 .home-middle-1,
@@ -1983,8 +2114,8 @@ Media Queries
   .featuredpost .widget-wrap .entry {
     width: 310px;
     width: 31.0rem;
-    height: 210px;
-    height: 21.0rem;  
+    height: 220px;
+    height: 22.0rem;  
   }
 
   .featuredpost .widget-wrap h2 a {
@@ -2166,8 +2297,8 @@ Media Queries
     border: 1px solid #eaeaea;
     width: 368px;
     width: 36.8rem;
-    height: 210px;
-    height: 21.0rem;  
+    height: 220px;
+    height: 22.0rem;  
     background: #f6f6f6;
   }
 
