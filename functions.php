@@ -117,7 +117,7 @@ add_filter( 'style_loader_src', '_remove_script_version', 15, 1 );
 /***** STRUCTURE & REPOSITIONING *****/
 
 // Add HTML5 functions
-add_theme_support( 'genesis-html5' );
+add_theme_support( 'html5' );
 
 /** Add support for structural wraps */
 add_theme_support( 'genesis-structural-wraps', array( 'header', 'nav', 'subnav', 'inner', 'footer-widgets', 'footer' ) );
