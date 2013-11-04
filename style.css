@@ -1852,6 +1852,20 @@ Pages
   padding: 0px;
 }
 
+/* About Page */
+
+#headshot {
+	float:right;
+	width: 400px;
+	width: 40.0rem;
+}
+
+#about-welcome {
+	text-align:center;
+	width: 100%;
+	margin-bottom: 18px;
+	margin-bottom: 1.8rem;
+}
 
 /*
 Footer Widgets
