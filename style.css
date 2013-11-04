@@ -1564,6 +1564,12 @@ li.comment {
 	padding: 2.4rem;
 }
 
+.pagination-next,.pagination-previous {
+	font-size: 24px;
+	font-size: 2.4rem;
+	padding-bottom: 18px;
+	padding-bottom: 1.8rem;
+}
 
 /*
 Sidebars

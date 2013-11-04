@@ -198,6 +198,18 @@ function fix_comments_links() {
   echo '<div id="comments"></div>';
 }
 
+// Change pagination labels
+add_filter( 'genesis_prev_link_text', 'gt_review_prev_link_text' );
+function gt_review_prev_link_text() {
+        $prevlink = '&laquo; Newer Posts';
+        return $prevlink;
+}
+add_filter( 'genesis_next_link_text', 'gt_review_next_link_text' );
+function gt_review_next_link_text() {
+        $nextlink = 'Older Posts &raquo;';
+        return $nextlink;
+}
+
 /***** CUSTOMIZING TITLES & DESCRIPTION & BREADCRUMBS *****/
 
 // Remove and/or add custom site title
