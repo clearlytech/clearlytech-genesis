@@ -38,25 +38,25 @@ remove_filter( 'the_excerpt', 'wpautop' );
 /***** CLEAN UP THE <HEAD> *****/
 
 // Remove rsd link
-remove_action( 'wp_head', 'rsd_link' );                    
+remove_action( 'wp_head', 'rsd_link' );
 // Remove Windows Live Writer
-remove_action( 'wp_head', 'wlwmanifest_link' );                       
+remove_action( 'wp_head', 'wlwmanifest_link' );
 // Index link
-remove_action( 'wp_head', 'index_rel_link' );                         
+remove_action( 'wp_head', 'index_rel_link' );
 // Previous link
-remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );            
+remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );
 // Start link
-remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );             
+remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );
 // Links for adjacent posts
-remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 ); 
+remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
 // Remove WP version
-remove_action( 'wp_head', 'wp_generator' );  
+remove_action( 'wp_head', 'wp_generator' );
 
 /** Remove default site title and add custom site title **/
 remove_action( 'genesis_site_title', 'genesis_seo_site_title' );
 remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
-function custom_site_title() { 
-     echo '<a href="'.get_bloginfo('url').'" title="My Website"><div class="ct-header-logo"></div></a>';
+function custom_site_title() {
+     echo '<a href="'.get_bloginfo('url').'" title="ClearlyTech - Build with Confidence"><div class="ct-header-logo"></div></a>';
 }
 add_action( 'genesis_site_title', 'custom_site_title' );
 
@@ -100,10 +100,10 @@ add_action( 'genesis_meta', 'ct_viewport_meta_tag' );
 // Disable the action above if you want to use what Genesis adds for viewport. Use one or the other
 add_theme_support( 'genesis-responsive-viewport' );
 
-// Change favicon location 
+// Change favicon location
 add_filter( 'genesis_pre_load_favicon', 'ct_favicon_filter' );
 
-// Add scripts & styles 
+// Add scripts & styles
 add_action( 'wp_enqueue_scripts', 'ct_load_custom_scripts', 999 );
 
 // IE conditional wrapper
@@ -165,7 +165,7 @@ function ct_filter_image_sizes( $sizes) {
 }
 add_filter('intermediate_image_sizes_advanced', 'ct_filter_image_sizes');
 
-if ( function_exists( 'add_image_size' ) ) { 
+if ( function_exists( 'add_image_size' ) ) {
 	add_image_size( 'featured-thumb', 368, 100, true ); // (cropped)
   add_image_size( 'featured-full', 800, 217, true);
   set_post_thumbnail_size( 368, 100, true );
@@ -193,7 +193,7 @@ function post_info_filter($post_info) {
 }
 
 // Fix comments link with Disqus
-add_action('genesis_after_entry', 'fix_comments_links'); 
+add_action('genesis_after_entry', 'fix_comments_links');
 function fix_comments_links() {
   echo '<div id="comments"></div>';
 }
@@ -314,6 +314,6 @@ genesis_register_sidebar( array(
 
 add_filter( 'http_request_args', 'ct_prevent_theme_update', 5, 2 );
 
-// Below is the closing bracket of theme setup. It's kinda important. 
+// Below is the closing bracket of theme setup. It's kinda important.
 } // <-- DO NOT REMOVE THIS
 ?>
