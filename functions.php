@@ -210,6 +210,12 @@ function gt_review_next_link_text() {
         return $nextlink;
 }
 
+/** Kill Wordpress Comments to avoid bots, Disqus in place for real users **/
+add_action('pre_comment_on_post', 'block_wp_comments');
+function block_wp_comments() {
+  wp_die( __('Sorry, comments are closed for this item.') );
+}
+
 /***** CUSTOMIZING TITLES & DESCRIPTION & BREADCRUMBS *****/
 
 // Remove and/or add custom site title
