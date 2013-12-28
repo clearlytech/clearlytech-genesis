@@ -1664,6 +1664,15 @@ Sidebars
   border-top: solid 0.6rem #7dbf53;
 }
 
+/* Clarity Expert Network Widget */
+#text-6 {
+  padding-bottom: 2px;
+}
+
+#text-6 .textwidget {
+  padding: 2px;
+}
+
 .sidebar .search-form {
 	width: 100%;
 }

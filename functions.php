@@ -244,6 +244,7 @@ add_filter('genesis_footer_backtotop_text', 'ct_footer_backtotop_text');
 // Add support for footer widgets
 add_theme_support( 'genesis-footer-widgets', 3 );
 
+add_filter( 'publicize_checkbox_default', '__return_false' );
 
 /***** OTHER GENESIS CLEANUP OPTIONS *****/
 
