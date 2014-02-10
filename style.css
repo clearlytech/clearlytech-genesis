@@ -369,6 +369,7 @@ h3 {
 h4 {
 	font-size: 18px;
 	font-size: 1.8rem;
+  margin-top: 6px;
 }
 
 h5 {
@@ -1394,7 +1395,7 @@ Content Area
   float: none;
   margin: 0px 0px 20px 0px;
   margin: 0rem 0rem 2.0rem 0rem;
-  padding: 0rem 3rem 2rem 3rem;
+  padding: 2rem 3rem 2rem 3rem;
 }
 
 .entry-content aside > img {
