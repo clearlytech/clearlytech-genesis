@@ -411,7 +411,7 @@ textarea {
 	background: #fff;
 	border: 1px solid #ddd;
 	border-radius: 2px;
-	color: #999;
+	color: #5b361a;
 	font-family: 'gibsonlight', Helvetica, Arial, sans-serif;
 	font-size: 14px;
 	font-size: 1.4rem;
@@ -658,6 +658,12 @@ Common Classes
 }
 
 .sticky {
+}
+
+figcaption {
+  text-align: center;
+  margin-bottom: 8px;
+  margin-bottom: 0.8em;
 }
 
 img.centered,
@@ -949,12 +955,14 @@ Site Header
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7dbf53', endColorstr='#62a7dd',GradientType=1 ); /* IE6-9 */
 }
 
+
 .site-header {
   height: 128px;
   height: 12.8rem;
 	padding: 20px 0;
 	padding: 2.0rem 0;
-  background: #262626;
+  background: #fff;
+  border-bottom: 1px solid #7dbf53;
 }
 
 .header-image .site-header {
@@ -1035,15 +1043,15 @@ Site Header
 
 .ct-header-logo {
   background:url(images/ct_header_logo.png) no-repeat top center;
-  height: 90px;
-  height: 9.0rem;
-  width: 323px;
-  width: 32.3rem;
+  height: 120px;
+  height: 12.0rem;
+  width: 438px;
+  width: 43.8rem;
   display: block;
-  margin-top: 20px;
-  margin-top: 2.0rem;
-  margin-bottom: 20px;
-  margin-bottom: 2.0rem;
+  margin-top: 5px;
+  margin-top: 0.5rem;
+  margin-bottom: 5px;
+  margin-bottom: 0.5rem;
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
@@ -1053,7 +1061,7 @@ Site Header
   only screen and (min-resolution: 192dpi) {
     .ct-header-logo {
         background:url('images/ct_header_logo@2x.png') no-repeat top left;
-        background-size: 323px 90px;
+        background-size: 438px 120px;
     }
 }
 
@@ -1078,8 +1086,8 @@ Site Header
 
 .site-header .search-form > input {
   height: 14px;
-  background-color: rgba(90, 90, 90, 0.5);
-  border: 1px solid #666;
+  background-color: rgba(175, 143, 121, 0.2);
+  border: 1px solid #5b361a;
 }
 
 .site-header .widget-area .widget_nav_menu,
@@ -1094,8 +1102,8 @@ Site Navigation
 
 .genesis-nav-menu {
 	clear: both;
-  color: #999;
-	font-family: 'gibsonlight', Helvetica, Arial, sans-serif;
+  color: #5b361a;
+	font-family: 'gibsonregular', Helvetica, Arial, sans-serif;
 	font-size: 15px;
 	font-size: 1.5rem;
   line-height: 1.5;
@@ -1116,7 +1124,7 @@ Site Navigation
 
 .genesis-nav-menu a {
 	border: none;
-  color: #999;
+  color: #5b361a;
 	display: block;
   padding: 14px 12px;
   padding: 0.875rem 0.75rem;
@@ -1126,7 +1134,7 @@ Site Navigation
 
 .genesis-nav-menu a:hover,
 .genesis-nav-menu .current-menu-item > a {
-	color: #666;
+	color: #ff9933;
 }
 
 .genesis-nav-menu > .menu-item > a {
@@ -1233,7 +1241,7 @@ Site Navigation
 
 .nav-primary a:hover,
 .nav-primary .current-menu-item > a {
-	color: #fff;
+	color: #ff9933;
 }
 
 .nav-primary .sub-menu a:hover {
@@ -1244,8 +1252,8 @@ Site Navigation
 ------------------------------------------------ */
 
 .nav-secondary {
-  background-color: #323232;
-  color: #fff;
+  background-color: #fff;
+  color: #5b361a;
   font-size: 16px;
   padding: 20px;
   padding: 2rem;
@@ -1259,7 +1267,6 @@ Site Navigation
   margin-left: auto;
   margin-right: auto;
 }
-
 
 .nav-secondary li.menu-item {
 	font-family: 'gibsonregular', Helvetica, Arial, sans-serif;
@@ -1631,8 +1638,8 @@ Sidebars
 }
 
 .breadcrumb .breadcrumb-wrapper {
-  border-top: solid 6px #595959;
-  border-top: solid 0.6rem #595959;
+  border-top: solid 6px #5b361a;
+  border-top: solid 0.6rem #5b361a;
   padding: 10px;
   padding: 1.0rem;
 }
