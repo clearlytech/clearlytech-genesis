@@ -1,14 +1,14 @@
-<?php 
+<?php
 
 // Add Viewport meta tag for mobile browsers
 function ct_viewport_meta_tag() {
 	echo '<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />'."\n";
 	echo '<meta name="HandheldFriendly" content="True" />'."\n";
 	echo '<meta name="MobileOptimized" content="320" />'."\n";
-	echo '<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>'."\n";
+  // echo '<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>'."\n";
 }
 
-// Change favicon location 
+// Change favicon location
 function ct_favicon_filter( $favicon_url ) {
 	return get_bloginfo('stylesheet_directory').'/images/favicon.png?v=201309';
 }
@@ -16,10 +16,10 @@ function ct_favicon_filter( $favicon_url ) {
 // Add scripts & styles
 function ct_load_custom_scripts() {
 	  wp_register_script( 'theme', CHILD_URL . '/js/scripts.js', array( 'jquery' ), '1.0', true );
-    
+
 	  wp_register_style( 'google-fonts', 'http://fonts.googleapis.com/css?family=Lora|Open+Sans+Condensed:300\" rel="stylesheet" type="text/css">' );
 	  wp_register_style( 'theme-ie-only', CHILD_URL . '/css/child-style-ie.css' );
-	 
+
 	  wp_enqueue_script(array('theme' ));
 	  wp_enqueue_style(array( 'google-fonts', 'theme-ie-only' ));
 }
@@ -50,7 +50,7 @@ $creds .= '&copy;' .date('Y') .' '. get_bloginfo('name') .'<i class="icon-apple"
 $creds .= '&copy; 2013 ' . get_bloginfo('name');
 	}
   $creds .= '</div>';
- return  $creds;	
+ return  $creds;
 }
 
 function ct_footer_backtotop_text($backtotop) {
@@ -66,7 +66,7 @@ function ct_syntaxhighlighter_script() {
 // Remove & add custom site title
 // Below is the default markup
 function ct_custom_seo_site_title() {
-	if(is_front_page()){ 
+	if(is_front_page()){
 echo '<h1 class="site-title" itemprop="headline"><a title="'.get_bloginfo('name').'" href="'.get_bloginfo('url').'" rel="nofollow">'.get_bloginfo('name').'</a></h1>';
 }else {
 echo '<p class="site-title" itemprop="headline"><a title="'.get_bloginfo('name').'" href="'.get_bloginfo('url').'" rel="nofollow">'.get_bloginfo('name').'</a></p>';
