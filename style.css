@@ -1891,6 +1891,23 @@ Pages
 	margin-bottom: 1.8rem;
 }
 
+/* Contact Form 7 Forms */
+
+.wpcf7 {
+  margin-top: 24px;
+  margin-top: 2.4rem;
+  font-size: 18px;
+  font-size: 1.8rem;
+  margin-bottom: 24px;
+  margin-bottom: 2.4rem;
+}
+
+.wpcf7-response-output {
+  padding: 8px;
+  padding: 0.8rem;
+  background-color: #eee;
+}
+
 /*
 Footer Widgets
 ---------------------------------------------------------------------------------------------------- */
